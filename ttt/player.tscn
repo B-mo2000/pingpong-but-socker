@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://7x07qi2rmhra"]
+
+[ext_resource type="Script" path="res://ttt/player.gd" id="1_16l6h"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qi64m"]
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3pb2"]
+size = Vector2(32, 130)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_q2l1q"]
+polygon = PackedVector2Array(-16, -65, 16, -65, 16, 65, -16, 65)
+
+[node name="player" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_qi64m")
+gravity_scale = 1.66533e-16
+linear_damp = 2.0
+script = ExtResource("1_16l6h")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -65.0
+offset_right = 16.0
+offset_bottom = 65.0
+color = Color(0, 0.501961, 1, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4.36956e-07, 0)
+shape = SubResource("RectangleShape2D_o3pb2")
+metadata/_edit_lock_ = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_q2l1q")
+metadata/_edit_lock_ = true

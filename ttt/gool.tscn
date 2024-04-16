@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b127t548sqtxf"]
+
+[ext_resource type="Script" path="res://ttt/gool.gd" id="1_7agw1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oj4jj"]
+size = Vector2(40, 74)
+
+[node name="gool" type="Marker2D"]
+scale = Vector2(1, 2.52)
+script = ExtResource("1_7agw1")
+
+[node name="g" type="Area2D" parent="."]
+position = Vector2(-20, -37)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="g"]
+z_index = -1
+offset_right = 40.0
+offset_bottom = 74.0
+color = Color(0, 0.501961, 1, 1)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="g"]
+position = Vector2(20, 37)
+shape = SubResource("RectangleShape2D_oj4jj")
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="g" to="." method="_on_g_area_entered"]

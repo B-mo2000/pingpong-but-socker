@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8kgk6jcndfsc"]
+
+[ext_resource type="Texture2D" uid="uid://vemiw1hv7xto" path="res://img/2266laet.png" id="1_xvxox"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eoigq"]
+bounce = 1.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7kg4q"]
+size = Vector2(40, 40)
+
+[node name="ball" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_eoigq")
+gravity_scale = 1.66533e-16
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.78181e-08, 0)
+shape = SubResource("RectangleShape2D_7kg4q")
+metadata/_edit_lock_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 16.0
+shadow_enabled = true
+texture = ExtResource("1_xvxox")
+texture_scale = 8.62
+metadata/_edit_lock_ = true
+
+[node name="ball_area" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ball_area"]
+position = Vector2(-2.78181e-08, 0)
+shape = SubResource("RectangleShape2D_7kg4q")
+metadata/_edit_lock_ = true
